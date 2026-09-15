@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creazioni Artigianali Fatte a Mano</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Libreria per le animazioni allo scroll (AOS CSS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #faf8f5;
+            --text-color: #2c2a29;
+            --accent-color: #a3704c;
+            --accent-hover: #86593a;
+            --card-bg: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(250, 248, 245, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 40px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            max-width: 800px;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #666;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(163, 112, 76, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(163, 112, 76, 0.3);
+        }
+
+        /* Sezione Prodotti */
+        .products {
+            padding: 120px 8%;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 280px;
+            background-color: #eee;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.03);
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        /* Footer / Contatti */
+        footer {
+            background-color: #1f1d1c;
+            color: white;
+            padding: 80px 8% 40px;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        footer p {
+            color: #aaa;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .copyright {
+            margin-top: 60px;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header data-aos="fade-down" data-aos-duration="1000">
+        <div class="logo">ArtisanCraft</div>
+        <nav>
+            <a href="#prodotti">Creazioni</a>
+            <a href="#chi-sono">Chi Sono</a>
+            <a href="#contatti">Contatti</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Oggetti unici, fatti a mano con cura e passione.</h1>
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Ogni pezzo è realizzato artigianalmente per dare valore ai tuoi spazi e ai tuoi regali, lontano dalla produzione di massa.</p>
+        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+            <a href="#prodotti" class="btn">Scopri le Creazioni</a>
+        </div>
+    </section>
+
+    <!-- Prodotti Section -->
+    <section class="products" id="prodotti">
+        <h2 class="section-title" data-aos="fade-right" data-aos-duration="1000">I miei lavori</h2>
+        
+        <div class="grid">
+            <!-- Prodotto 1 -->
+            <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div style="overflow: hidden;"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Creazione artigianale" class="card-img"></div>
+                <div class="card-content">
+                    <h3>Complemento d'Arredo</h3>
+                    <p>Pezzo unico rifinito a mano con materiali naturali selezionati con cura.</p>
+                    <span class="price">Disponibile su richiesta</span>
+                </div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
+                <div style="overflow: hidden;"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80" alt="Creazione artigianale" class="card-img"></div>
+                <div class="card-content">
+                    <h3>Accessorio Decorativo</h3>
+                    <p>Dettagli unici pensati per valorizzare ogni angolo della tua casa.</p>
+                    <span class="price">Pezzo unico</span>
+                </div>
+            </div>
+
+            <!-- Prodotto 3 -->
+            <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div style="overflow: hidden;"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Creazione artigianale" class="card-img"></div>
+                <div class="card-content">
+                    <h3>Idea Regalo Personalizzata</h3>
+                    <p>Realizzato su misura secondo le tue preferenze e idee creative.</p>
+                    <span class="price">Su ordinazione</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contatti -->
+    <footer id="contatti">
+        <h2 data-aos="fade-up" data-aos-duration="1000">Vuoi commissionarmi un pezzo unico?</h2>
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Scrivimi per concordare materiali, idee e personalizzazioni su misura per te.</p>
+        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <a href="mailto:iltuoindirizzo@email.com" class="btn">Contattami via Email</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 - Tutti i diritti riservati. Fatto a mano.
+        </div>
+    </footer>
+
+    <!-- Script per attivare le animazioni AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // L'animazione avviene una sola volta quando si scorre
+            offset: 100, // Margine di attivazione
+        });
+    </script>
+</body>
+</html>
