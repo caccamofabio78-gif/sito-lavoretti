@@ -6,6 +6,8 @@
     <title>Creazioni Artigianali Fatte a Mano</title>
     <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome per le icone social -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Libreria per le animazioni allo scroll (AOS CSS) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -31,6 +33,7 @@
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         /* Header / Navbar */
@@ -77,7 +80,6 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            margin-top: 40px;
         }
 
         .hero h1 {
@@ -105,6 +107,7 @@
             font-weight: 600;
             transition: var(--transition);
             box-shadow: 0 10px 30px rgba(163, 112, 76, 0.2);
+            display: inline-block;
         }
 
         .btn:hover {
@@ -113,7 +116,7 @@
             box-shadow: 0 15px 35px rgba(163, 112, 76, 0.3);
         }
 
-        /* Sezione Prodotti */
+        /* Sezione Prodotti (Catalogo) */
         .products {
             padding: 120px 8%;
         }
@@ -121,8 +124,14 @@
         .section-title {
             font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 60px;
+            margin-bottom: 10px;
             letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 1.05rem;
         }
 
         .grid {
@@ -137,6 +146,9 @@
             overflow: hidden;
             border: 1px solid rgba(0, 0, 0, 0.04);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -144,10 +156,16 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
         }
 
-        .card-img {
+        .card-img-wrapper {
+            overflow: hidden;
             width: 100%;
             height: 280px;
             background-color: #eee;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
@@ -157,12 +175,12 @@
         }
 
         .card-content {
-            padding: 30px;
+            padding: 25px;
         }
 
         .card-content h3 {
             font-size: 1.25rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
         }
 
@@ -172,13 +190,72 @@
             margin-bottom: 20px;
         }
 
+        .card-footer {
+            padding: 0 25px 25px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .price {
             font-weight: 700;
             color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .btn-sm {
+            background-color: var(--text-color);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-sm:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Sezione Metodi di Pagamento & Info */
+        .info-section {
+            background-color: #f2eee9;
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .info-box i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .info-box h4 {
+            margin-bottom: 10px;
             font-size: 1.1rem;
         }
 
-        /* Footer / Contatti */
+        .info-box p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Footer & Social */
         footer {
             background-color: #1f1d1c;
             color: white;
@@ -186,24 +263,52 @@
             text-align: center;
         }
 
-        footer h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+        .social-icons {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
-        footer p {
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
             color: #aaa;
-            margin-bottom: 40px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
         }
 
         .copyright {
-            margin-top: 60px;
+            margin-top: 40px;
             font-size: 0.85rem;
-            color: #666;
+            color: #777;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 20px;
         }
@@ -212,79 +317,131 @@
 <body>
 
     <!-- Header -->
-    <header data-aos="fade-down" data-aos-duration="1000">
-        <div class="logo">ArtisanCraft</div>
+    <header>
+        <div class="logo">Artisanal.</div>
         <nav>
-            <a href="#prodotti">Creazioni</a>
-            <a href="#chi-sono">Chi Sono</a>
-            <a href="#contatti">Contatti</a>
+            <a href="#creazioni">Creazioni</a>
+            <a href="#pagamenti">Pagamenti</a>
+            <a href="#contatti">Social & Contatti</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Oggetti unici, fatti a mano con cura e passione.</h1>
-        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Ogni pezzo è realizzato artigianalmente per dare valore ai tuoi spazi e ai tuoi regali, lontano dalla produzione di massa.</p>
-        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-            <a href="#prodotti" class="btn">Scopri le Creazioni</a>
+        <h1 data-aos="fade-up" data-aos-duration="1000">Oggetti unici, fatti a mano con passione</h1>
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Esplora la collezione di pezzi unici realizzati artigianalmente e personalizzabili per ogni tua esigenza.</p>
+        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <a href="#creazioni" class="btn">Visualizza le Creazioni</a>
         </div>
     </section>
 
-    <!-- Prodotti Section -->
-    <section class="products" id="prodotti">
-        <h2 class="section-title" data-aos="fade-right" data-aos-duration="1000">I miei lavori</h2>
+    <!-- Sezione Creazioni / Catalogo -->
+    <section id="creazioni" class="products">
+        <h2 class="section-title" data-aos="fade-right">Le Nostre Creazioni</h2>
+        <p class="section-subtitle" data-aos="fade-right" data-aos-delay="100">Scegli il tuo pezzo preferito o richiedine uno su misura.</p>
         
         <div class="grid">
             <!-- Prodotto 1 -->
-            <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                <div style="overflow: hidden;"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Creazione artigianale" class="card-img"></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80" alt="Creazione 1" class="card-img">
+                </div>
                 <div class="card-content">
-                    <h3>Complemento d'Arredo</h3>
-                    <p>Pezzo unico rifinito a mano con materiali naturali selezionati con cura.</p>
-                    <span class="price">Disponibile su richiesta</span>
+                    <h3>Vaso in Ceramica Raku</h3>
+                    <p>Pezzo unico modellato e smaltato a mano con tecniche tradizionali.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">€ 45,00</span>
+                    <a href="https://instagram.com/tuonome" target="_blank" class="btn-sm">Acquista / Info</a>
                 </div>
             </div>
 
             <!-- Prodotto 2 -->
-            <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
-                <div style="overflow: hidden;"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80" alt="Creazione artigianale" class="card-img"></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Creazione 2" class="card-img">
+                </div>
                 <div class="card-content">
-                    <h3>Accessorio Decorativo</h3>
-                    <p>Dettagli unici pensati per valorizzare ogni angolo della tua casa.</p>
-                    <span class="price">Pezzo unico</span>
+                    <h3>Tagliere in Legno Massello</h3>
+                    <p>Legno pregiato di noce rifinito con oli protettivi naturali.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">€ 60,00</span>
+                    <a href="https://instagram.com/tuonome" target="_blank" class="btn-sm">Acquista / Info</a>
                 </div>
             </div>
 
             <!-- Prodotto 3 -->
-            <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                <div style="overflow: hidden;"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Creazione artigianale" class="card-img"></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Creazione 3" class="card-img">
+                </div>
                 <div class="card-content">
-                    <h3>Idea Regalo Personalizzata</h3>
-                    <p>Realizzato su misura secondo le tue preferenze e idee creative.</p>
-                    <span class="price">Su ordinazione</span>
+                    <h3>Candela in Cera di Soia</h3>
+                    <p>Profumazione naturale in barattolo di vetro riutilizzabile.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price">€ 22,00</span>
+                    <a href="https://instagram.com/tuonome" target="_blank" class="btn-sm">Acquista / Info</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contatti -->
-    <footer id="contatti">
-        <h2 data-aos="fade-up" data-aos-duration="1000">Vuoi commissionarmi un pezzo unico?</h2>
-        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Scrivimi per concordare materiali, idee e personalizzazioni su misura per te.</p>
-        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-            <a href="mailto:iltuoindirizzo@email.com" class="btn">Contattami via Email</a>
+    <!-- Sezione Metodi di Pagamento e Sicurezza -->
+    <section id="pagamenti" class="info-section">
+        <h2 class="section-title">Pagamenti e Spedizioni Sicure</h2>
+        <p class="section-subtitle">Metodi semplici e protetti per completare i tuoi acquisti in totale tranquillità.</p>
+        
+        <div class="info-grid">
+            <div class="info-box" data-aos="fade-up">
+                <i class="fa-brands fa-paypal"></i>
+                <h4>PayPal & Carte</h4>
+                <p>Transazioni protette con crittografia end-to-end tramite PayPal o le principali carte di credito.</p>
+            </div>
+            <div class="info-box" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h4>Spedizione Tracciata</h4>
+                <p>Spedizioni rapide in tutta Italia con corriere espresso e codice di tracciamento dedicato.</p>
+            </div>
+            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-handshake"></i>
+                <h4>Ordini su Misura</h4>
+                <p>Contattami direttamente sui social per concordare modifiche, colori o progetti personalizzati.</p>
+            </div>
         </div>
+    </section>
+
+    <!-- Footer, Social e Contatti -->
+    <footer id="contatti">
+        <h2>Seguimi sui Social</h2>
+        <p>Rimani aggiornato sulle nuove creazioni e guarda i dietro le quinte del laboratorio.</p>
+        
+        <div class="social-icons">
+            <a href="https://instagram.com/IL_TUO_PROFILO" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com/@IL_TUO_PROFILO" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="mailto:tuaemail@dominio.it" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/39TUONUMERO" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+
+        <div class="footer-links">
+            <a href="#creazioni">Creazioni</a>
+            <a href="#pagamenti">Pagamenti</a>
+            <a href="mailto:tuaemail@dominio.it">Contattami</a>
+        </div>
+
         <div class="copyright">
-            &copy; 2026 - Tutti i diritti riservati. Fatto a mano.
+            &copy; 2026 Creazioni Artigianali Fatte a Mano. Tutti i diritti riservati.
         </div>
     </footer>
 
-    <!-- Script per attivare le animazioni AOS -->
+    <!-- Script AOS per le animazioni -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            once: true, // L'animazione avviene una sola volta quando si scorre
-            offset: 100, // Margine di attivazione
+            duration: 800,
+            once: true,
+            offset: 100
         });
     </script>
 </body>
